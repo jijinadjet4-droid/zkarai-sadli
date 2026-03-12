@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>الهلال الأحمر الجزائري - بريزينة</title>
+    <!-- Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-red: #e63946;
+            --primary-red-dark: #c1121f;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --dark-gray: #6c757d;
+            --black: #212529;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+            color: var(--black);
+            line-height: 1.5;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            padding: 10px 12px;
+            margin: 0 auto;
+        }
+
+        /* ========== الهيدر والشعار ========== */
+        header {
+            background: linear-gradient(135deg, var(--primary-red), var(--primary-red-dark));
+            color: var(--white);
+            padding: 12px 0;
+            border-radius: 0 0 25px 25px;
+            box-shadow: var(--shadow);
+            margin-bottom: 15px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+        }
+
+        .logo-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 2px solid white;
+            cursor: pointer;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo-text {
+            flex: 1;
+        }
+
+        .logo-text h1 {
+            font-size: 1.1rem;
+            margin-bottom: 3px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .logo-text p {
+            font-size: 0.75rem;
+            opacity: 0.95;
+            white-space: nowrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background-color: var(--white);
+            color: var(--primary-red);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:active {
+            background-color: var(--light-gray);
+            transform: scale(0.98);
+        }
+
+        /* ========== شريط التنقل ========== */
+        .nav-bar {
+            background: var(--white);
+            padding: 5px 3px;
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+            margin: 12px 0 5px;
+            display: flex;
+            justify-content: space-around;
+            gap: 2px;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--black);
+            padding: 5px 0;
+            border-radius: 25px;
+            transition: all 0.2s ease;
+            flex: 1;
+            cursor: pointer;
+        }
+
+        .nav-item i {
+            font-size: 1.2rem;
+            color: var(--primary-red);
+            margin-bottom: 2px;
+        }
+
+        .nav-item span {
+            font-size: 0.65rem;
+            font-weight: 600;
+        }
+
+        .nav-item:active,
+        .nav-item.active {
+            background: var(--primary-red);
+            color: var(--white);
+        }
+
+        .nav-item:active i,
+        .nav-item.active i {
+            color: var(--white);
+        }
+
+        .about-card {
+            background: white;
+            border-radius: 25px;
+            padding: 18px;
+            margin: 15px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .about-text h2 {
+            color: var(--primary-red);
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            text-align: center;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--dark-gray);
+        }
+
+        .stats-flex {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: var(--light-gray);
+            padding: 10px;
+            border-radius: 12px;
+            min-width: 80px;
+        }
+
+        .stat-item i {
+            color: var(--primary-red);
+            font-size: 1.3rem;
+        }
+
+        .stat-item .number {
+            font-weight: bold;
+            color: var(--black);
+            font-size: 1.1rem;
+        }
+
+        .stat-item .label {
+            font-size: 0.7rem;
+            color: var(--dark-gray);
+        }
+
+        .principles-section {
+            background: white;
+            border-radius: 25px;
+            padding: 20px 15px;
+            margin: 20px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .principles-section h2 {
+            color: var(--primary-red);
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .principle-card {
+            background: linear-gradient(135deg, #f8f9fa, white);
+            border-radius: 15px;
+            padding: 15px 8px;
+            text-align: center;
+        }
+
+        .principle-card i {
+            font-size: 1.8rem;
+            color: var(--primary-red);
+            margin-bottom: 5px;
+        }
+
+        .principle-card h3 {
+            font-size: 0.9rem;
+            color: var(--black);
+            margin-bottom: 3px;
+        }
+
+        .principle-card p {
+            color: var(--dark-gray);
+            font-size: 0.7rem;
+        }
+
+        .join-section {
+            text-align: center;
+            margin: 25px 0 20px;
+        }
+
+        .join-btn {
+            background: linear-gradient(135deg, var(--primary-red), var(--primary-red-dark));
+            color: white;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            max-width: 280px;
+            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+        }
+
+        .join-btn:active {
+            transform: scale(0.98);
+        }
+
+        .join-btn i {
+            margin-left: 6px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 25px;
+            padding: 18px;
+            margin: 15px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .news-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .news-header h2 {
+            color: var(--primary-red);
+            font-size: 1.3rem;
+        }
+
+        .icons-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .icon-card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid #ffeeee;
+            position: relative;
+        }
+
+        .icon-card:active {
+            transform: scale(0.98);
+        }
+
+        .icon-card img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+        }
+
+        .icon-card-content {
+            padding: 10px;
+            background: #fff5f5;
+        }
+
+        .icon-card-content i {
+            font-size: 1.5rem;
+            color: var(--primary-red);
+        }
+
+        .icon-card-content h3 {
+            color: var(--primary-red);
+            font-size: 0.9rem;
+            margin: 3px 0;
+        }
+
+        .details-card {
+            background: white;
+            border-radius: 25px;
+            padding: 18px;
+            margin: 15px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .details-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .details-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .details-title i {
+            font-size: 1.8rem;
+            color: var(--primary-red);
+        }
+
+        .details-title h2 {
+            color: var(--primary-red);
+            font-size: 1.3rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 12px;
+            cursor: pointer;
+            border: 2px solid var(--primary-red);
+        }
+
+        /* نافذة الصور المكبرة - واحدة فقط */
+        #imageModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #modalImage {
+            max-width: 90%;
+            max-height: 70%;
+            border-radius: 10px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .form-section {
+            background: var(--white);
+            padding: 20px 15px;
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+            margin: 15px 0;
+        }
+
+        .form-section h2 {
+            text-align: center;
+            font-size: 1.4rem;
+            color: var(--primary-red);
+            margin-bottom: 20px;
+        }
+
+        .form-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--black);
+            font-size: 0.85rem;
+        }
+
+        label i {
+            color: var(--primary-red);
+            margin-left: 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            background-color: var(--light-gray);
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-red);
+            background-color: var(--white);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 22px;
+            height: 22px;
+            accent-color: var(--primary-red);
+            cursor: pointer;
+        }
+
+        .radio-option label {
+            margin-bottom: 0;
+            font-weight: normal;
+            font-size: 1rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, var(--primary-red), var(--primary-red-dark));
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            margin-top: 20px;
+        }
+
+        .submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        .confirmation-section {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 15px;
+        }
+
+        .confirmation-card {
+            background: var(--white);
+            padding: 30px 20px;
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: #28a745;
+            margin-bottom: 15px;
+        }
+
+        .confirmation-card h1 {
+            font-size: 1.4rem;
+            color: var(--black);
+            margin-bottom: 10px;
+        }
+
+        .confirmation-card p {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+        }
+
+        .back-btn {
+            background: var(--primary-red);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        footer {
+            background: var(--black);
+            color: white;
+            padding: 20px 0 10px;
+            border-radius: 25px 25px 0 0;
+            margin-top: 30px;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #aaa;
+            font-size: 0.7rem;
+            border-top: 1px solid #333;
+            padding-top: 15px;
+            margin: 0 15px;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active-page {
+            display: block;
+        }
+        
+        .admin-btn {
+            background: linear-gradient(135deg,#e63946,#c1121f);
+            color:white;
+            border:none;
+            padding:10px 18px;
+            border-radius:30px;
+            font-size:0.9rem;
+            font-weight:600;
+            cursor:pointer;
+            box-shadow:0 4px 10px rgba(0,0,0,0.15);
+            display:block;
+            margin:15px auto;
+            transition:0.3s;
+        }
+
+        .admin-btn i {
+            margin-left:5px;
+        }
+
+        .admin-btn:hover {
+            transform:scale(1.05);
+            box-shadow:0 6px 15px rgba(0,0,0,0.2);
+        }
+
+        .delete-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: #e63946;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <!-- الهيدر -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <!-- قسم اللوغو والنص معاً -->
+                <div class="logo-section">
+                   <div class="logo-icon" onclick="secretAdmin()">
+                        <img src="photo_5866022816728157838_x.jpg" alt="شعار الهلال الأحمر الجزائري">
+                    </div>
+                    <div class="logo-text">
+                        <h1>الهلال الأحمر الجزائري</h1>
+                        <p>اللجنة المحلية بريزينة</p>
+                    </div>
+                </div>
+                <!-- زر انخرط في أقصى اليسار -->
+                <a href="#" class="btn btn-primary" onclick="showRegistration()">
+                    <i class="fas fa-hand-holding-heart"></i> انخرط
+                </a>
+            </div>
+
+            <!-- شريط التنقل -->
+            <div class="nav-bar">
+                <div class="nav-item active" onclick="showPage('home')" id="nav-home">
+                    <i class="fas fa-home"></i>
+                    <span>الرئيسية</span>
+                </div>
+                <div class="nav-item" onclick="showPage('news')" id="nav-news">
+                    <i class="fas fa-newspaper"></i>
+                    <span>الأخبار</span>
+                </div>
+                <div class="nav-item" onclick="showPage('registration')" id="nav-registration">
+                    <i class="fas fa-pen"></i>
+                    <span>تسجيل</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- الصفحة الرئيسية -->
+        <div id="home-page" class="page active-page">
+            <div class="about-card">
+                <div class="about-text">
+                    <h2>الهلال الأحمر الجزائري</h2>
+                    <p>
+                        <strong>اللجنة المحلية بريزينة</strong> - الهلال الأحمر الجزائري جمعية إنسانية تطوعية تأسست سنة 1956، تهدف إلى تقديم المساعدة والدعم للفئات المحتاجة والمتضررة دون تمييز.
+                    </p>
+                    
+                    <div class="stats-flex">
+                        <div class="stat-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <div class="number">1995</div>
+                            <div class="label">سنة التأسيس</div>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-users"></i>
+                            <div class="number">120+</div>
+                            <div class="label">متطوع</div>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-hand-holding-heart"></i>
+                            <div class="number">5000+</div>
+                            <div class="label">مستفيد</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="principles-section">
+                <h2>مبادئ الهلال الأحمر</h2>
+                <div class="principles-grid">
+                    <div class="principle-card"><i class="fas fa-heart"></i><h3>الإنسانية</h3><p>تقديم المساعدة لكل محتاج</p></div>
+                    <div class="principle-card"><i class="fas fa-balance-scale"></i><h3>عدم التحيز</h3><p>مساعدة الجميع دون تفرقة</p></div>
+                    <div class="principle-card"><i class="fas fa-hand-peace"></i><h3>الحياد</h3><p>عدم الانحياز في النزاعات</p></div>
+                    <div class="principle-card"><i class="fas fa-flag"></i><h3>الاستقلال</h3><p>استقلالية العمل الإنساني</p></div>
+                    <div class="principle-card"><i class="fas fa-hands-helping"></i><h3>التطوع</h3><p>العمل بروح التطوع</p></div>
+                    <div class="principle-card"><i class="fas fa-globe-africa"></i><h3>العالمية</h3><p>حركة دولية تضم الجميع</p></div>
+                </div>
+            </div>
+
+            <div class="join-section">
+                <button class="join-btn" onclick="showRegistration()">
+                    <i class="fas fa-hand-holding-heart"></i> انضم إلينا
+                </button>
+            </div>
+        </div>
+
+        <!-- صفحة الأخبار -->
+        <div id="news-page" class="page">
+            <div class="news-card">
+                <div class="news-header">
+                    <h2><i class="fas fa-newspaper"></i> أنشطتنا</h2>
+                    <button class="btn btn-primary" onclick="showPage('home')">
+                        <i class="fas fa-home"></i> الرئيسية
+                    </button>
+                </div>
+                
+                <div class="icons-grid" id="news-grid">
+                    <!-- الأخبار الثابتة -->
+                    <div class="icon-card" onclick="showKhitanDetails()" data-news="khitan">
+                        <img src="photo_5870672372229147944_x.jpg" alt="ختان جماعي الدفعة الأولى">
+                        <div class="icon-card-content">
+                            <i class="fas fa-cut"></i>
+                            <h3>ختان جماعي الدفعة الأولى</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="icon-card" onclick="showIftarDetails()" data-news="iftar">
+                        <img src="photo_5870672372229147945_x.jpg" alt="إفطار صائم">
+                        <div class="icon-card-content">
+                            <i class="fas fa-utensils"></i>
+                            <h3>إفطار صائم</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- صفحة تفاصيل ختان جماعي -->
+        <div id="khitan-details-page" class="page">
+            <div class="details-card">
+                <div class="details-header">
+                    <div class="details-title">
+                        <i class="fas fa-cut"></i>
+                        <h2>ختان جماعي</h2>
+                    </div>
+                    <button class="btn btn-primary" onclick="showPage('news')">
+                        <i class="fas fa-arrow-right"></i> عودة
+                    </button>
+                </div>
+                
+                <div class="gallery-grid">
+                    <img src="photo_5870672372229147940_y.jpg" onclick="openImage('photo_5870672372229147940_y.jpg')">
+                    <img src="photo_5870672372229147952_y.jpg" onclick="openImage('photo_5870672372229147952_y.jpg')">
+                    <img src="photo_5870672372229147954_y.jpg" onclick="openImage('photo_5870672372229147954_y.jpg')">
+                    <img src="photo_5870672372229147953_x.jpg" onclick="openImage('photo_5870672372229147953_x.jpg')">
+                    <img src="photo_5870672372229147941_x.jpg" onclick="openImage('photo_5870672372229147941_x.jpg')">
+                    <img src="photo_5870672372229147943_x.jpg" onclick="openImage('photo_5870672372229147943_x.jpg')">
+                </div>
+            </div>
+        </div>
+
+        <!-- صفحة تفاصيل إفطار صائم -->
+        <div id="iftar-details-page" class="page">
+            <div class="details-card">
+                <div class="details-header">
+                    <div class="details-title">
+                        <i class="fas fa-utensils"></i>
+                        <h2>إفطار صائم</h2>
+                    </div>
+                    <button class="btn btn-primary" onclick="showPage('news')">
+                        <i class="fas fa-arrow-right"></i> عودة
+                    </button>
+                </div>
+                
+                <div class="gallery-grid">
+                    <img src="photo_5870672372229147947_x.jpg" onclick="openImage('photo_5870672372229147947_x.jpg')">
+                    <img src="photo_5870672372229147946_x.jpg" onclick="openImage('photo_5870672372229147946_x.jpg')">
+                    <img src="photo_5870672372229147948_x.jpg" onclick="openImage('photo_5870672372229147948_x.jpg')">
+                    <img src="photo_5870672372229147949_x.jpg" onclick="openImage('photo_5870672372229147949_x.jpg')">
+                    <img src="photo_5870672372229147951_x.jpg" onclick="openImage('photo_5870672372229147951_x.jpg')">
+                    <img src="photo_5870672372229147950_x.jpg" onclick="openImage('photo_5870672372229147950_x.jpg')">
+                </div>
+            </div>
+        </div>
+
+        <!-- صفحة تفاصيل الأخبار الديناميكية -->
+        <div id="news-details-page" class="page">
+            <div class="details-card">
+                <div class="details-header">
+                    <div class="details-title">
+                        <i class="fas fa-newspaper"></i>
+                        <h2 id="dynamic-news-title">عنوان الخبر</h2>
+                    </div>
+                    <button class="btn btn-primary" onclick="showPage('news')">
+                        <i class="fas fa-arrow-right"></i> عودة
+                    </button>
+                </div>
+
+                <p id="dynamic-news-description" style="margin:15px 0;">وصف الخبر</p>
+
+                <div class="gallery-grid" id="dynamic-news-gallery"></div>
+            </div>
+        </div>
+
+        <!-- نافذة الصور المكبرة - واحدة فقط -->
+        <div id="imageModal" onclick="closeModal(event)">
+            <img id="modalImage" src="">
+            <button class="close-modal" onclick="closeModal(event)">✕</button>
+        </div>
+
+        <!-- قسم إضافة الأخبار (لوحة التحكم) - يظهر فقط للرئيس -->
+        <div id="admin-section" style="display:none;">
+            <h2 style="text-align:center; color:#e63946; margin-bottom:20px;">إضافة خبر جديد</h2>
+            <form id="newsForm" style="max-width:600px; margin:0 auto; background:#fff; padding:20px; border-radius:25px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                
+                <input type="text" name="title" placeholder="عنوان الخبر" required style="width:100%; padding:12px 15px; margin-bottom:15px; border-radius:12px; border:1px solid #e9ecef; font-size:1rem;">
+                
+                <textarea name="description" placeholder="وصف الخبر" required style="width:100%; padding:12px 15px; margin-bottom:15px; border-radius:12px; border:1px solid #e9ecef; font-size:1rem; resize:vertical;"></textarea>
+                
+                <input type="file" id="imageFiles" name="images" multiple accept="image/*" style="margin-bottom:15px;">
+                
+                <button type="submit" style="width:100%; padding:14px; background:linear-gradient(135deg,#e63946,#c1121f); color:white; border:none; border-radius:50px; font-size:1.1rem; font-weight:700; cursor:pointer; transition:0.3s;">
+                    <i class="fas fa-plus"></i> أضف الخبر
+                </button>
+            </form>
+        </div>
+
+        <!-- صفحة التسجيل -->
+        <div id="registration-page" class="page">
+            <div class="form-section">
+                <h2><i class="fas fa-pen"></i> استمارة الانخراط</h2>
+                
+                <form class="registration-form" id="registrationForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> الاسم واللقب</label>
+                            <input type="text" name="fullname" placeholder="أدخل اسمك الكامل" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-calendar"></i> تاريخ الميلاد</label>
+                            <input type="date" name="birthdate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-phone"></i> رقم الهاتف</label>
+                            <input type="tel" name="phone" placeholder="05xxxxxxxx" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-map-marker-alt"></i> الولاية</label>
+                            <select name="wilaya" required>
+                                <option value="">اختر ولايتك</option>
+                                <option value="01">01 - أدرار</option><option value="02">02 - الشلف</option>
+                                <option value="03">03 - الأغواط</option><option value="04">04 - أم البواقي</option>
+                                <option value="05">05 - باتنة</option><option value="06">06 - بجاية</option>
+                                <option value="07">07 - بسكرة</option><option value="08">08 - بشار</option>
+                                <option value="09">09 - البليدة</option><option value="10">10 - البويرة</option>
+                                <option value="11">11 - تمنراست</option><option value="12">12 - تبسة</option>
+                                <option value="13">13 - تلمسان</option><option value="14">14 - تيارت</option>
+                                <option value="15">15 - تيزي وزو</option><option value="16">16 - الجزائر</option>
+                                <option value="17">17 - الجلفة</option><option value="18">18 - جيجل</option>
+                                <option value="19">19 - سطيف</option><option value="20">20 - سعيدة</option>
+                                <option value="21">21 - سكيكدة</option><option value="22">22 - سيدي بلعباس</option>
+                                <option value="23">23 - عنابة</option><option value="24">24 - قالمة</option>
+                                <option value="25">25 - قسنطينة</option><option value="26">26 - المدية</option>
+                                <option value="27">27 - مستغانم</option><option value="28">28 - المسيلة</option>
+                                <option value="29">29 - معسكر</option><option value="30">30 - ورقلة</option>
+                                <option value="31">31 - وهران</option><option value="32">32 - البيض</option>
+                                <option value="33">33 - إليزي</option><option value="34">34 - برج بوعريريج</option>
+                                <option value="35">35 - بومرداس</option><option value="36">36 - الطارف</option>
+                                <option value="37">37 - تندوف</option><option value="38">38 - تيسمسيلت</option>
+                                <option value="39">39 - الوادي</option><option value="40">40 - خنشلة</option>
+                                <option value="41">41 - سوق أهراس</option><option value="42">42 - تيبازة</option>
+                                <option value="43">43 - ميلة</option><option value="44">44 - عين الدفلى</option>
+                                <option value="45">45 - النعامة</option><option value="46">46 - عين تموشنت</option>
+                                <option value="47">47 - غرداية</option><option value="48">48 - غليزان</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> البريد الإلكتروني</label>
+                            <input type="email" name="email" placeholder="example@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-graduation-cap"></i> المستوى الدراسي</label>
+                            <select name="education" required>
+                                <option value="">اختر المستوى</option>
+                                <option value="متوسط">متوسط</option>
+                                <option value="ثانوي">ثانوي</option>
+                                <option value="جامعي">جامعي</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-question-circle"></i> هل لديك خبرة سابقة في التطوع؟</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="exp-yes" name="volunteerExperience" value="نعم" required>
+                                    <label for="exp-yes">نعم</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="exp-no" name="volunteerExperience" value="لا">
+                                    <label for="exp-no">لا</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-tasks"></i> مجال التطوع</label>
+                            <select name="fields" required>
+                                <option value="">اختر المجال</option>
+                                <option value="الاسعاف">الإسعافات الأولية</option>
+                                <option value="الاغاثة">الإغاثة والطوارئ</option>
+                                <option value="الايتام">دعم الأيتام</option>
+                                <option value="التنظيم">التنظيم والتسيير</option>
+                                <option value="الاتصال">الاتصال والإعلام</option>
+                                <option value="الصحة">الصحة والتوعية</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> إرسال الطلب
+                    </button>
+                </form>
+            </div>
+        </div>
+<!-- مودال تأكيد الإرسال -->
+<div id="confirmationModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:1000;">
+    <div style="background:white; padding:30px; border-radius:15px; max-width:400px; text-align:center; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+        <h3>✅ تم إرسال طلبك بنجاح!</h3>
+        <p>شكراً لتسجيلك معنا.</p>
+        <button onclick="closeConfirmationModal()" style="padding:10px 20px; border:none; border-radius:10px; background:#e63946; color:white; cursor:pointer; font-weight:600;">حسناً</button>
+    </div>
+</div>
+        <!-- صفحة التأكيد -->
+        <div id="confirmation-page" class="page confirmation-section">
+            <div class="confirmation-card">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h1>تم استلام طلبك بنجاح!</h1>
+                <p>شكراً لاهتمامك بالانضمام إلينا. سنتواصل معك قريباً.</p>
+                <a href="#" class="back-btn" onclick="showHomePage()">
+                    <i class="fas fa-home"></i> الرئيسية
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="copyright">
+            <p>© 2026 الهلال الأحمر الجزائري - اللجنة المحلية بريزينة</p>
+        </div>
+    </footer>
+<script>
+    // ===========================
+    // متغيرات عامة
+    // ===========================
+    let clickCount = 0;
+    const adminPassword = "20040331";
+    let isAdmin = false;
+
+    // مفتاح التخزين المحلي
+    const STORAGE_KEY = 'crc_brezina_news';
+
+    /* ===========================
+       التخزين المحلي - حفظ وجلب الأخبار
+    =========================== */
+    function saveNewsToStorage(newsArray) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(newsArray));
+    }
+
+    function loadNewsFromStorage() {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        return stored ? JSON.parse(stored) : [];
+    }
+
+    // مصفوفة الأخبار المحلية (تتحمل من التخزين)
+    let localNews = loadNewsFromStorage();
+
+    /* ===========================
+       التنقل بين الصفحات
+    =========================== */
+    function showPage(pageName) {
+        console.log('ننتقل إلى صفحة:', pageName); // للتتبع
+        
+        // إخفاء كل الصفحات
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
+        
+        // إظهار الصفحة المطلوبة
+        const page = document.getElementById(pageName + '-page');
+        if (page) {
+            page.classList.add('active-page');
+            console.log('تم العثور على الصفحة:', pageName + '-page');
+        } else {
+            console.log('الصفحة غير موجودة:', pageName + '-page');
+        }
+
+        // تحديث شريط التنقل
+        document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+        const navItem = document.getElementById('nav-' + pageName);
+        if (navItem) navItem.classList.add('active');
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showRegistration() { showPage('registration'); }
+    function showHomePage() { showPage('home'); }
+
+    /* ===========================
+       المودال للصور
+    =========================== */
+    function openImage(src) {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        if (modal && modalImg) {
+            modalImg.src = src;
+            modal.style.display = 'flex';
+        }
+    }
+
+    function closeModal(event) {
+        const modal = document.getElementById('imageModal');
+        if (event && event.target === document.getElementById('modalImage')) return;
+        if (modal) {
+            modal.style.display = 'none';
+            document.getElementById('modalImage').src = '';
+        }
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const modal = document.getElementById('imageModal');
+            if (modal && modal.style.display === 'flex') modal.style.display = 'none';
+        }
+    });
+
+    /* ===========================
+       استمارة التسجيل
+    =========================== */
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const phone = document.querySelector('input[name="phone"]').value;
+        const phoneRegex = /^(05|06|07)[0-9]{8}$/;
+        if (!phoneRegex.test(phone)) { alert('رقم الهاتف غير صحيح'); return; }
+
+        const experienceSelected = document.querySelector('input[name="volunteerExperience"]:checked');
+        if (!experienceSelected) { alert('اختر هل لديك خبرة أم لا'); return; }
+
+        const data = {
+            name: document.querySelector('input[name="fullname"]').value,
+            birth: document.querySelector('input[name="birthdate"]').value,
+            phone: phone,
+            wilaya: document.querySelector('select[name="wilaya"]').value,
+            email: document.querySelector('input[name="email"]').value,
+            level: document.querySelector('select[name="education"]').value,
+            experience: experienceSelected.value,
+            field: document.querySelector('select[name="fields"]').value
+        };
+
+        fetch("https://script.google.com/macros/s/AKfycbz781C6YPvK4og3vaginNWdNjKEKSLUtkWnfD0xIIU_n1QexfETNDCu8WK5IDKNUjdP5Q/exec", {
+            method: "POST",
+            body: JSON.stringify(data)
+        })
+        .then(res => { openConfirmationModal(); document.getElementById("registrationForm").reset(); })
+        .catch(err => { alert("حدث خطأ أثناء الإرسال"); console.error(err); });
+    });
+
+    /* ===========================
+       دخول الرئيس
+    =========================== */
+    function secretAdmin() {
+        clickCount++;
+        if(clickCount === 3) {
+            const password = prompt("رئيس اللجنة زكرياء، ادخل الكلمة السرية");
+            if(password === adminPassword) {
+                document.getElementById("admin-section").style.display = "block";
+                isAdmin = true;
+                alert("مرحباً بك رئيس اللجنة");
+                displayAllNews(); // إعادة العرض مع أزرار الحذف
+            } else { alert("كلمة السر غير صحيحة"); }
+            clickCount = 0;
+        }
+        setTimeout(() => { clickCount = 0; }, 2000);
+    }
+
+    /* ===========================
+       تحويل الصور لـ Base64
+    =========================== */
+    function fileToBase64(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = error => reject(error);
+        });
+    }
+
+    /* ===========================
+       إضافة خبر جديد
+    =========================== */
+    document.getElementById('newsForm').addEventListener('submit', async function(e){
+        e.preventDefault();
+
+        const title = this.title.value;
+        const description = this.description.value;
+        const files = Array.from(document.getElementById('imageFiles').files);
+
+        if(!title || !description){
+            alert("الرجاء ملء عنوان ووصف الخبر");
+            return;
+        }
+
+        if(files.length === 0){
+            alert("الرجاء اختيار صورة واحدة على الأقل");
+            return;
+        }
+
+        try {
+            // تحويل الصور لـ Base64
+            const base64Images = await Promise.all(files.map(fileToBase64));
+            
+            // حفظ الخبر مع الصور
+            const newsItem = {
+                id: Date.now(),
+                title: title,
+                description: description,
+                images: base64Images,
+                date: new Date().toLocaleDateString('ar-DZ')
+            };
+            
+            localNews.unshift(newsItem);
+            saveNewsToStorage(localNews);
+            
+            displayAllNews();
+            this.reset();
+            alert("✅ تم إضافة الخبر بنجاح");
+            
+        } catch(error) {
+            console.error("خطأ في تحويل الصور:", error);
+            alert("❌ حدث خطأ أثناء معالجة الصور");
+        }
+    });
+
+    /* ===========================
+       عرض كل الأخبار
+    =========================== */
+    function displayAllNews() {
+        const newsGrid = document.getElementById('news-grid');
+        newsGrid.innerHTML = '';
+        
+        // 1. عرض الأخبار المحفوظة
+        localNews.forEach(news => {
+            const card = createNewsCard(
+                news.title,
+                news.images[0],
+                'fas fa-newspaper',
+                () => showNewsDetails(news.title, news.description, news.images)
+            );
+
+            // زر الحذف للرئيس فقط
+            if(isAdmin){
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = '✕';
+                deleteBtn.className = 'delete-btn';
+                deleteBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    deleteNews(news.id);
+                };
+                card.appendChild(deleteBtn);
+            }
+
+            newsGrid.appendChild(card);
+        });
+        
+        // 2. عرض خبر ختان جماعي
+        newsGrid.appendChild(createNewsCard(
+            'ختان جماعي الدفعة الأولى',
+            'photo_5870672372229147944_x.jpg',
+            'fas fa-cut',
+            showKhitanDetails
+        ));
+        
+        // 3. عرض خبر إفطار صائم
+        newsGrid.appendChild(createNewsCard(
+            'إفطار صائم',
+            'photo_5870672372229147945_x.jpg',
+            'fas fa-utensils',
+            showIftarDetails
+        ));
+    }
+
+    /* ===========================
+       إنشاء بطاقة خبر
+    =========================== */
+    function createNewsCard(title, imgSrc, iconClass, clickHandler) {
+        const card = document.createElement('div');
+        card.className = 'icon-card';
+        card.onclick = clickHandler;
+
+        const img = document.createElement('img');
+        img.src = imgSrc;
+        img.alt = title;
+        img.onerror = function() { 
+            this.src = 'https://via.placeholder.com/300x200?text=' + encodeURIComponent(title); 
+        };
+
+        const content = document.createElement('div');
+        content.className = 'icon-card-content';
+        content.innerHTML = `<i class="${iconClass}"></i><h3>${title}</h3>`;
+
+        card.appendChild(img);
+        card.appendChild(content);
+        
+        return card;
+    }
+
+    /* ===========================
+       حذف خبر
+    =========================== */
+    function deleteNews(newsId) {
+        if(confirm("هل تريد حذف هذا الخبر؟")) {
+            localNews = localNews.filter(news => news.id !== newsId);
+            saveNewsToStorage(localNews);
+            displayAllNews();
+        }
+    }
+
+    /* ===========================
+       عرض تفاصيل الخبر (مصحح)
+    =========================== */
+    function showNewsDetails(title, description, images) {
+        console.log('عرض تفاصيل الخبر:', title); // للتتبع
+        
+        // تعيين العنوان والوصف
+        document.getElementById('dynamic-news-title').textContent = title;
+        document.getElementById('dynamic-news-description').textContent = description;
+
+        // عرض الصور
+        const gallery = document.getElementById('dynamic-news-gallery');
+        gallery.innerHTML = '';
+
+        if(images && images.length > 0){
+            images.forEach((src, index) => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = `صورة ${index + 1}`;
+                img.onclick = () => openImage(src);
+                img.onerror = function() { 
+                    this.src = 'https://via.placeholder.com/150?text=صورة'; 
+                };
+                gallery.appendChild(img);
+            });
+        }
+
+        // الانتقال إلى صفحة التفاصيل
+        showPage('news-details');
+    }
+
+    /* ===========================
+      /* ===========================
+   الأخبار الثابتة
+========================== */
+function showKhitanDetails() {
+    console.log('عرض تفاصيل ختان جماعي');
+    
+    const images = [
+        'photo_5870672372229147940_y.jpg',
+        'photo_5870672372229147952_y.jpg',
+        'photo_5870672372229147954_y.jpg',
+        'photo_5870672372229147953_x.jpg',
+        'photo_5870672372229147941_x.jpg',
+        'photo_5870672372229147943_x.jpg'
+    ];
+    
+    showNewsDetails(
+        "ختان جماعي الدفعة الأولى",
+        "",
+        images
+    );
+}
+
+function showIftarDetails() {
+    console.log('عرض تفاصيل إفطار صائم');
+    
+    const images = [
+        'photo_5870672372229147947_x.jpg',
+        'photo_5870672372229147946_x.jpg',
+        'photo_5870672372229147948_x.jpg',
+        'photo_5870672372229147949_x.jpg',
+        'photo_5870672372229147951_x.jpg',
+        'photo_5870672372229147950_x.jpg'
+    ];
+    
+    showNewsDetails(
+        "إفطار صائم",
+        "**إفطار عابري السبيل ببريزينة** 🌙\n\n\"وفي ذلك فليتنافس المتنافسون\"\n\nفي إطار تعزيز العمل التطوعي ومرافقة المبادرات الخيرية خلال هذا الشهر الفضيل، قام رئيس اللجنة المحلية للهلال الأحمر الجزائري ببريزينة بزيارة تفقدية لمشروع مطعم إفطار عابري السبيل التابع لـ الجمعية الخيرية التضامنية محمد زواوة.\n\nوقد تشرفت هذه الزيارة بحضور مميز لـ السيدة بالمختار مباركة، ممثلة المجلس الأعلى للشباب، والتي أبت إلا أن تشارك المتطوعين هذه اللحظات الإيمانية، دعماً منها للطاقات الشبانية المنخرطة في العمل الإنساني.\n\nشكلت هذه الزيارة فرصة للاطلاع على سير العمل داخل المطعم، والوقوف على الظروف التنظيمية التي يسهر عليها أعضاء جمعية \"محمد زواوة\" لتقديم وجبات تليق بضيوف المدينة وعابري السبيل.\n\nكل الشكر والتقدير لـ:\n- **الجمعية الخيرية التضامنية محمد زواوة**: على إخلاصهم في تسيير هذا الصرح الخيري.\n- **رئيس اللجنة المحلية للهلال الأحمر**: على المتابعة الميدانية وروح التنسيق الدائم.\n- **السيدة بالمختار مباركة**: على حضورها الداعم والملهم كصوت للشباب الجزائري الفاعل.\n\nنسأل الله العلي القدير أن يتقبل من القائمين على هذا المطعم والمساهمين فيه، وأن يجعل كل حبة تمر ورغيف خبز في ميزان حسناتهم.\n\nبريزينة ستبقى دائماً رمزاً للكرم والجود بفضل سواعد أبنائها المخلصين.\n\n#رمضان_كريم #إفطار_عابر_سبيل #الهلال_الأحمر_الجزائري #المجلس_الأعلى_للشباب #جمعية_محمد_زواوة",
+        images
+    );
+}
+
+    /* ===========================
+       مودال تأكيد التسجيل
+    =========================== */
+    function openConfirmationModal() {
+        const modal = document.getElementById('confirmationModal');
+        if(modal) modal.style.display = 'flex';
+    }
+    
+    function closeConfirmationModal() {
+        const modal = document.getElementById('confirmationModal');
+        if(modal) modal.style.display = 'none';
+    }
+
+    /* ===========================
+       تحميل الصفحة
+    =========================== */
+    window.onload = () => {
+        console.log('تم تحميل الصفحة');
+        displayAllNews();
+    };
+</script>
+
+</body>
+</html>
